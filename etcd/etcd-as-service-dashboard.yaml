@@ -24,16 +24,444 @@ data:
       "gnetId": 9070,
       "graphTooltip": 0,
       "id": 4,
-      "iteration": 1560116031818,
+      "iteration": 1560152522009,
       "links": [],
       "panels": [
+        {
+          "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 0
+          },
+          "id": 88,
+          "title": "Status",
+          "type": "row"
+        },
+        {
+          "cacheTimeout": null,
+          "columns": [],
+          "datasource": "prometheus",
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 0,
+            "y": 1
+          },
+          "id": 74,
+          "interval": null,
+          "links": [],
+          "maxDataPoints": 100,
+          "pageSize": null,
+          "scroll": true,
+          "showHeader": true,
+          "sort": {
+            "col": 0,
+            "desc": true
+          },
+          "styles": [
+            {
+              "alias": "Time",
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "pattern": "Time",
+              "type": "hidden"
+            },
+            {
+              "alias": "% Used Space",
+              "colorMode": "value",
+              "colors": [
+                "rgba(50, 172, 45, 0.97)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(245, 54, 54, 0.9)"
+              ],
+              "decimals": 2,
+              "pattern": "Value #B",
+              "thresholds": [
+                "45",
+                " 80"
+              ],
+              "type": "number",
+              "unit": "percent"
+            },
+            {
+              "alias": "Etcd Member",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "/instance/",
+              "thresholds": [],
+              "type": "string",
+              "unit": "short"
+            },
+            {
+              "alias": "Mem Used",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "Value #A",
+              "thresholds": [],
+              "type": "number",
+              "unit": "bytes"
+            },
+            {
+              "alias": "# Keys",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 0,
+              "mappingType": 1,
+              "pattern": "Value #C",
+              "thresholds": [],
+              "type": "number",
+              "unit": "none"
+            },
+            {
+              "alias": "Wal Sync 99p",
+              "colorMode": "value",
+              "colors": [
+                "rgba(50, 172, 45, 0.97)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(245, 54, 54, 0.9)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "Value #D",
+              "thresholds": [
+                "0.100",
+                " 400"
+              ],
+              "type": "number",
+              "unit": "s"
+            },
+            {
+              "alias": "DB Sync 99p",
+              "colorMode": "value",
+              "colors": [
+                "rgba(50, 172, 45, 0.97)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(245, 54, 54, 0.9)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "Value #E",
+              "thresholds": [
+                "0.100",
+                " 0.400"
+              ],
+              "type": "number",
+              "unit": "s"
+            },
+            {
+              "alias": "Is leader?",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "Value #F",
+              "thresholds": [],
+              "type": "string",
+              "unit": "short",
+              "valueMaps": [
+                {
+                  "text": "NO",
+                  "value": "0"
+                },
+                {
+                  "text": "YES",
+                  "value": "1"
+                }
+              ]
+            },
+            {
+              "alias": "Compacted Keys",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 0,
+              "mappingType": 1,
+              "pattern": "Value #G",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "/.*/",
+              "thresholds": [],
+              "type": "hidden",
+              "unit": "short"
+            }
+          ],
+          "targets": [
+            {
+              "expr": "(etcd_mvcc_db_total_size_in_bytes{instance=~\"$instance\",job=~\"$cluster\"} / etcd_server_quota_backend_bytes{instance=~\"$instance\",job=~\"$cluster\"})*100",
+              "format": "table",
+              "instant": true,
+              "intervalFactor": 1,
+              "refId": "B"
+            },
+            {
+              "expr": "process_resident_memory_bytes{instance=~\"$instance\",job=~\"$cluster\"}",
+              "format": "table",
+              "instant": true,
+              "intervalFactor": 1,
+              "refId": "A"
+            },
+            {
+              "expr": "sum(etcd_debugging_mvcc_keys_total{instance=~\"$instance\",job=~\"$cluster\"}) by (instance)",
+              "format": "table",
+              "instant": true,
+              "intervalFactor": 1,
+              "refId": "C"
+            },
+            {
+              "expr": "histogram_quantile(0.99, sum(rate(etcd_disk_wal_fsync_duration_seconds_bucket{instance=~\"$instance\",job=~\"$cluster\"}[5m])) by (instance, le))",
+              "format": "table",
+              "instant": true,
+              "intervalFactor": 2,
+              "refId": "D"
+            },
+            {
+              "expr": "histogram_quantile(0.99, sum(rate(etcd_disk_backend_commit_duration_seconds_bucket{instance=~\"$instance\",job=~\"$cluster\"}[5m])) by (instance, le))",
+              "format": "table",
+              "instant": true,
+              "intervalFactor": 2,
+              "refId": "E"
+            },
+            {
+              "expr": "sum(etcd_server_is_leader{instance=~\"$instance\",job=~\"$cluster\"}) by (instance)",
+              "format": "table",
+              "instant": true,
+              "intervalFactor": 1,
+              "refId": "F"
+            },
+            {
+              "expr": "sum(etcd_debugging_mvcc_db_compaction_keys_total{instance=~\"$instance\",job=~\"$cluster\"}) by (instance)",
+              "format": "table",
+              "instant": true,
+              "intervalFactor": 1,
+              "refId": "G"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Info",
+          "transform": "table",
+          "type": "table"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": false,
+          "colorValue": true,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "datasource": "prometheus",
+          "format": "none",
+          "gauge": {
+            "maxValue": 100,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 12,
+            "y": 1
+          },
+          "id": 44,
+          "interval": null,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "tableColumn": "",
+          "targets": [
+            {
+              "expr": "max(etcd_server_has_leader{instance=~\"$instance\",job=~\"$cluster\"})",
+              "format": "time_series",
+              "intervalFactor": 2,
+              "refId": "A",
+              "step": 600
+            }
+          ],
+          "thresholds": "0,1",
+          "title": "Etcd has a leader?",
+          "type": "singlestat",
+          "valueFontSize": "80%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "YES",
+              "value": "1"
+            },
+            {
+              "op": "=",
+              "text": "NO",
+              "value": "0"
+            }
+          ],
+          "valueName": "avg"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": false,
+          "colorValue": false,
+          "colors": [
+            "#299c46",
+            "rgba(237, 129, 40, 0.89)",
+            "#d44a3a"
+          ],
+          "datasource": "prometheus",
+          "format": "none",
+          "gauge": {
+            "maxValue": 100,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 3,
+            "x": 12,
+            "y": 4
+          },
+          "id": 66,
+          "interval": null,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "tableColumn": "",
+          "targets": [
+            {
+              "expr": "sum(etcd_server_id{instance=~\"$instance\",job=~\"$cluster\"})",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "members",
+              "refId": "A"
+            }
+          ],
+          "thresholds": "",
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Etcd Members",
+          "type": "singlestat",
+          "valueFontSize": "80%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "current"
+        },
         {
           "collapsed": true,
           "gridPos": {
             "h": 1,
             "w": 24,
             "x": 0,
-            "y": 0
+            "y": 7
           },
           "id": 78,
           "panels": [
@@ -59,7 +487,7 @@ data:
                 "h": 6,
                 "w": 8,
                 "x": 0,
-                "y": 1
+                "y": 8
               },
               "hideTimeOverride": false,
               "id": 68,
@@ -149,10 +577,10 @@ data:
                 "h": 6,
                 "w": 8,
                 "x": 8,
-                "y": 1
+                "y": 8
               },
               "hideTimeOverride": false,
-              "id": 79,
+              "id": 89,
               "interval": null,
               "links": [],
               "mappingType": 2,
@@ -177,7 +605,7 @@ data:
               "rangeMaps": [],
               "repeat": null,
               "repeatDirection": "h",
-              "repeatIteration": 1560116031818,
+              "repeatIteration": 1560152522009,
               "repeatPanelId": 68,
               "scopedVars": {
                 "instance": {
@@ -241,10 +669,10 @@ data:
                 "h": 6,
                 "w": 8,
                 "x": 16,
-                "y": 1
+                "y": 8
               },
               "hideTimeOverride": false,
-              "id": 80,
+              "id": 90,
               "interval": null,
               "links": [],
               "mappingType": 2,
@@ -269,7 +697,7 @@ data:
               "rangeMaps": [],
               "repeat": null,
               "repeatDirection": "h",
-              "repeatIteration": 1560116031818,
+              "repeatIteration": 1560152522009,
               "repeatPanelId": 68,
               "scopedVars": {
                 "instance": {
@@ -333,7 +761,7 @@ data:
                 "h": 5,
                 "w": 8,
                 "x": 0,
-                "y": 7
+                "y": 14
               },
               "id": 70,
               "interval": null,
@@ -430,9 +858,9 @@ data:
                 "h": 5,
                 "w": 8,
                 "x": 8,
-                "y": 7
+                "y": 14
               },
-              "id": 81,
+              "id": 91,
               "interval": null,
               "links": [],
               "mappingType": 2,
@@ -468,7 +896,7 @@ data:
               ],
               "repeat": null,
               "repeatDirection": "h",
-              "repeatIteration": 1560116031818,
+              "repeatIteration": 1560152522009,
               "repeatPanelId": 70,
               "scopedVars": {
                 "instance": {
@@ -529,9 +957,9 @@ data:
                 "h": 5,
                 "w": 8,
                 "x": 16,
-                "y": 7
+                "y": 14
               },
-              "id": 82,
+              "id": 92,
               "interval": null,
               "links": [],
               "mappingType": 2,
@@ -567,7 +995,7 @@ data:
               ],
               "repeat": null,
               "repeatDirection": "h",
-              "repeatIteration": 1560116031818,
+              "repeatIteration": 1560152522009,
               "repeatPanelId": 70,
               "scopedVars": {
                 "instance": {
@@ -629,7 +1057,7 @@ data:
                 "h": 6,
                 "w": 8,
                 "x": 0,
-                "y": 12
+                "y": 19
               },
               "id": 64,
               "interval": null,
@@ -717,9 +1145,9 @@ data:
                 "h": 6,
                 "w": 8,
                 "x": 8,
-                "y": 12
+                "y": 19
               },
-              "id": 83,
+              "id": 93,
               "interval": null,
               "links": [],
               "mappingType": 2,
@@ -744,7 +1172,7 @@ data:
               "rangeMaps": [],
               "repeat": null,
               "repeatDirection": "h",
-              "repeatIteration": 1560116031818,
+              "repeatIteration": 1560152522009,
               "repeatPanelId": 64,
               "scopedVars": {
                 "instance": {
@@ -807,9 +1235,9 @@ data:
                 "h": 6,
                 "w": 8,
                 "x": 16,
-                "y": 12
+                "y": 19
               },
-              "id": 84,
+              "id": 94,
               "interval": null,
               "links": [],
               "mappingType": 2,
@@ -834,7 +1262,7 @@ data:
               "rangeMaps": [],
               "repeat": null,
               "repeatDirection": "h",
-              "repeatIteration": 1560116031818,
+              "repeatIteration": 1560152522009,
               "repeatPanelId": 64,
               "scopedVars": {
                 "instance": {
@@ -896,7 +1324,7 @@ data:
                 "h": 5,
                 "w": 8,
                 "x": 0,
-                "y": 18
+                "y": 25
               },
               "id": 46,
               "interval": null,
@@ -1024,9 +1452,9 @@ data:
                 "h": 5,
                 "w": 8,
                 "x": 8,
-                "y": 18
+                "y": 25
               },
-              "id": 85,
+              "id": 95,
               "interval": null,
               "links": [],
               "mappingType": 1,
@@ -1089,7 +1517,7 @@ data:
               ],
               "repeat": null,
               "repeatDirection": "h",
-              "repeatIteration": 1560116031818,
+              "repeatIteration": 1560152522009,
               "repeatPanelId": 46,
               "scopedVars": {
                 "instance": {
@@ -1154,9 +1582,9 @@ data:
                 "h": 5,
                 "w": 8,
                 "x": 16,
-                "y": 18
+                "y": 25
               },
-              "id": 86,
+              "id": 96,
               "interval": null,
               "links": [],
               "mappingType": 1,
@@ -1219,7 +1647,7 @@ data:
               ],
               "repeat": null,
               "repeatDirection": "h",
-              "repeatIteration": 1560116031818,
+              "repeatIteration": 1560152522009,
               "repeatPanelId": 46,
               "scopedVars": {
                 "instance": {
@@ -1267,270 +1695,103 @@ data:
           "type": "row"
         },
         {
+          "collapsed": false,
           "gridPos": {
             "h": 1,
             "w": 24,
             "x": 0,
-            "y": 1
+            "y": 8
           },
           "id": 76,
+          "panels": [],
           "title": "General Info",
           "type": "row"
         },
         {
-          "cacheTimeout": null,
-          "columns": [],
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
           "datasource": "prometheus",
-          "fontSize": "100%",
+          "fill": 0,
           "gridPos": {
-            "h": 6,
+            "h": 8,
             "w": 12,
             "x": 0,
-            "y": 2
+            "y": 9
           },
-          "id": 74,
-          "interval": null,
+          "id": 58,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
           "links": [],
-          "maxDataPoints": 100,
-          "pageSize": null,
-          "scroll": true,
-          "showHeader": true,
-          "sort": {
-            "col": 0,
-            "desc": true
-          },
-          "styles": [
-            {
-              "alias": "Time",
-              "dateFormat": "YYYY-MM-DD HH:mm:ss",
-              "pattern": "Time",
-              "type": "hidden"
-            },
-            {
-              "alias": "% Used Space",
-              "colorMode": "value",
-              "colors": [
-                "rgba(50, 172, 45, 0.97)",
-                "rgba(237, 129, 40, 0.89)",
-                "rgba(245, 54, 54, 0.9)"
-              ],
-              "decimals": 2,
-              "pattern": "/Value #B/",
-              "thresholds": [
-                "45",
-                " 80"
-              ],
-              "type": "number",
-              "unit": "percent"
-            },
-            {
-              "alias": "",
-              "colorMode": null,
-              "colors": [
-                "rgba(245, 54, 54, 0.9)",
-                "rgba(237, 129, 40, 0.89)",
-                "rgba(50, 172, 45, 0.97)"
-              ],
-              "dateFormat": "YYYY-MM-DD HH:mm:ss",
-              "decimals": 2,
-              "mappingType": 1,
-              "pattern": "/.*/",
-              "thresholds": [],
-              "type": "string",
-              "unit": "short"
-            }
-          ],
+          "nullPointMode": "null",
+          "paceLength": 10,
+          "percentage": false,
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "stack": false,
+          "steppedLine": false,
           "targets": [
             {
-              "expr": "kube_pod_info{namespace=\"$namespace\", instance=~\"$instance\"}",
-              "format": "table",
-              "instant": true,
-              "intervalFactor": 2,
-              "legendFormat": "",
-              "refId": "A"
-            },
-            {
-              "expr": "sum((etcd_mvcc_db_total_size_in_bytes{instance=~\"$instance\",job=~\"$cluster\"} / etcd_server_quota_backend_bytes{instance=~\"$instance\",job=~\"$cluster\"})*100) by (instance)",
-              "format": "table",
-              "instant": true,
-              "intervalFactor": 1,
-              "refId": "B"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "% Used space",
-          "transform": "table",
-          "type": "table"
-        },
-        {
-          "cacheTimeout": null,
-          "colorBackground": false,
-          "colorValue": false,
-          "colors": [
-            "#299c46",
-            "rgba(237, 129, 40, 0.89)",
-            "#d44a3a"
-          ],
-          "datasource": "prometheus",
-          "format": "none",
-          "gauge": {
-            "maxValue": 100,
-            "minValue": 0,
-            "show": false,
-            "thresholdLabels": false,
-            "thresholdMarkers": true
-          },
-          "gridPos": {
-            "h": 3,
-            "w": 3,
-            "x": 12,
-            "y": 2
-          },
-          "id": 66,
-          "interval": null,
-          "links": [],
-          "mappingType": 1,
-          "mappingTypes": [
-            {
-              "name": "value to text",
-              "value": 1
-            },
-            {
-              "name": "range to text",
-              "value": 2
-            }
-          ],
-          "maxDataPoints": 100,
-          "nullPointMode": "connected",
-          "nullText": null,
-          "postfix": "",
-          "postfixFontSize": "50%",
-          "prefix": "",
-          "prefixFontSize": "50%",
-          "rangeMaps": [
-            {
-              "from": "null",
-              "text": "N/A",
-              "to": "null"
-            }
-          ],
-          "sparkline": {
-            "fillColor": "rgba(31, 118, 189, 0.18)",
-            "full": false,
-            "lineColor": "rgb(31, 120, 193)",
-            "show": false
-          },
-          "tableColumn": "",
-          "targets": [
-            {
-              "expr": "sum(etcd_server_id{instance=~\"$instance\",job=~\"$cluster\"})",
+              "expr": "etcd_debugging_mvcc_keys_total{instance=~\"$instance\",job=~\"$cluster\"}",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "members",
+              "legendFormat": "{{ instance }} Num keys",
               "refId": "A"
             }
           ],
-          "thresholds": "",
+          "thresholds": [],
           "timeFrom": null,
+          "timeRegions": [],
           "timeShift": null,
-          "title": "Etcd Members",
-          "type": "singlestat",
-          "valueFontSize": "80%",
-          "valueMaps": [
-            {
-              "op": "=",
-              "text": "N/A",
-              "value": "null"
-            }
-          ],
-          "valueName": "current"
-        },
-        {
-          "cacheTimeout": null,
-          "colorBackground": false,
-          "colorValue": true,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "datasource": "prometheus",
-          "format": "none",
-          "gauge": {
-            "maxValue": 100,
-            "minValue": 0,
-            "show": false,
-            "thresholdLabels": false,
-            "thresholdMarkers": true
+          "title": "Keys",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
           },
-          "gridPos": {
-            "h": 3,
-            "w": 3,
-            "x": 18,
-            "y": 2
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
           },
-          "id": 44,
-          "interval": null,
-          "links": [],
-          "mappingType": 1,
-          "mappingTypes": [
+          "yaxes": [
             {
-              "name": "value to text",
-              "value": 1
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
             },
             {
-              "name": "range to text",
-              "value": 2
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
             }
           ],
-          "maxDataPoints": 100,
-          "nullPointMode": "connected",
-          "nullText": null,
-          "postfix": "",
-          "postfixFontSize": "50%",
-          "prefix": "",
-          "prefixFontSize": "50%",
-          "rangeMaps": [
-            {
-              "from": "null",
-              "text": "N/A",
-              "to": "null"
-            }
-          ],
-          "sparkline": {
-            "fillColor": "rgba(31, 118, 189, 0.18)",
-            "full": false,
-            "lineColor": "rgb(31, 120, 193)",
-            "show": false
-          },
-          "tableColumn": "",
-          "targets": [
-            {
-              "expr": "max(etcd_server_has_leader{instance=~\"$instance\",job=~\"$cluster\"})",
-              "format": "time_series",
-              "intervalFactor": 2,
-              "refId": "A",
-              "step": 600
-            }
-          ],
-          "thresholds": "0,1",
-          "title": "Etcd has a leader?",
-          "type": "singlestat",
-          "valueFontSize": "80%",
-          "valueMaps": [
-            {
-              "op": "=",
-              "text": "YES",
-              "value": "1"
-            },
-            {
-              "op": "=",
-              "text": "NO",
-              "value": "0"
-            }
-          ],
-          "valueName": "avg"
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
         },
         {
           "aliasColors": {},
@@ -1545,7 +1806,7 @@ data:
             "h": 7,
             "w": 6,
             "x": 12,
-            "y": 5
+            "y": 9
           },
           "id": 22,
           "legend": {
@@ -1636,7 +1897,7 @@ data:
             "h": 7,
             "w": 6,
             "x": 18,
-            "y": 5
+            "y": 9
           },
           "id": 21,
           "legend": {
@@ -1720,92 +1981,6 @@ data:
           "dashLength": 10,
           "dashes": false,
           "datasource": "prometheus",
-          "fill": 0,
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
-            "y": 8
-          },
-          "id": 58,
-          "legend": {
-            "alignAsTable": true,
-            "avg": false,
-            "current": true,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 2,
-          "links": [],
-          "nullPointMode": "null",
-          "paceLength": 10,
-          "percentage": false,
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "etcd_debugging_mvcc_keys_total{instance=~\"$instance\",job=~\"$cluster\"}",
-              "format": "time_series",
-              "intervalFactor": 1,
-              "legendFormat": "{{ instance }} Num keys",
-              "refId": "A"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Keys",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": "prometheus",
           "editable": true,
           "error": false,
           "fill": 0,
@@ -1813,7 +1988,7 @@ data:
             "h": 7,
             "w": 6,
             "x": 12,
-            "y": 12
+            "y": 16
           },
           "id": 20,
           "legend": {
@@ -1906,7 +2081,7 @@ data:
             "h": 7,
             "w": 6,
             "x": 18,
-            "y": 12
+            "y": 16
           },
           "id": 16,
           "legend": {
@@ -1995,7 +2170,7 @@ data:
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 16
+            "y": 17
           },
           "id": 52,
           "legend": {
@@ -2088,7 +2263,7 @@ data:
             "h": 7,
             "w": 6,
             "x": 12,
-            "y": 19
+            "y": 23
           },
           "id": 50,
           "interval": null,
@@ -2176,7 +2351,7 @@ data:
             "h": 7,
             "w": 6,
             "x": 18,
-            "y": 19
+            "y": 23
           },
           "id": 62,
           "legend": {
@@ -2271,7 +2446,7 @@ data:
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 24
+            "y": 25
           },
           "id": 29,
           "legend": {
@@ -2371,7 +2546,7 @@ data:
             "h": 6,
             "w": 3,
             "x": 12,
-            "y": 26
+            "y": 30
           },
           "id": 43,
           "interval": null,
@@ -2441,7 +2616,7 @@ data:
             "h": 6,
             "w": 9,
             "x": 15,
-            "y": 26
+            "y": 30
           },
           "id": 60,
           "legend": {
@@ -2538,7 +2713,7 @@ data:
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 32
+            "y": 33
           },
           "id": 1,
           "legend": {
@@ -2646,7 +2821,7 @@ data:
             "h": 5,
             "w": 3,
             "x": 12,
-            "y": 32
+            "y": 36
           },
           "id": 42,
           "interval": null,
@@ -2718,7 +2893,7 @@ data:
             "h": 6,
             "w": 9,
             "x": 15,
-            "y": 32
+            "y": 36
           },
           "id": 40,
           "legend": {
@@ -2828,13 +3003,98 @@ data:
           "dashLength": 10,
           "dashes": false,
           "datasource": "prometheus",
+          "fill": 0,
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 41
+          },
+          "id": 56,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "paceLength": 10,
+          "percentage": false,
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "rate(etcd_disk_backend_defrag_duration_seconds_sum{instance=~\"$instance\",job=~\"$cluster\"}[1m])",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "{{ instance }} latency distributions of defrag",
+              "refId": "A"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Defrag time",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "prometheus",
           "description": "indicates how many proposals are queued to commit. Rising pending proposals suggests there is a high client load or the member cannot commit proposals.",
           "fill": 1,
           "gridPos": {
             "h": 7,
             "w": 9,
             "x": 15,
-            "y": 38
+            "y": 42
           },
           "id": 5,
           "legend": {
@@ -2918,12 +3178,12 @@ data:
           "datasource": "prometheus",
           "fill": 0,
           "gridPos": {
-            "h": 8,
+            "h": 7,
             "w": 12,
             "x": 0,
-            "y": 40
+            "y": 49
           },
-          "id": 56,
+          "id": 48,
           "legend": {
             "avg": false,
             "current": false,
@@ -2947,10 +3207,10 @@ data:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(etcd_disk_backend_defrag_duration_seconds_sum{instance=~\"$instance\",job=~\"$cluster\"}[1m])",
+              "expr": "etcd_debugging_mvcc_db_compaction_keys_total{instance=~\"$instance\",job=~\"$cluster\"}",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "{{ instance }} latency distributions of defrag",
+              "legendFormat": "{{ instance  }} keys compacted ",
               "refId": "A"
             }
           ],
@@ -2958,7 +3218,7 @@ data:
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Defrag time",
+          "title": "Compacted Keys",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -3009,7 +3269,7 @@ data:
             "h": 5,
             "w": 9,
             "x": 15,
-            "y": 45
+            "y": 49
           },
           "id": 19,
           "legend": {
@@ -3095,98 +3355,13 @@ data:
           "dashLength": 10,
           "dashes": false,
           "datasource": "prometheus",
-          "fill": 0,
-          "gridPos": {
-            "h": 7,
-            "w": 12,
-            "x": 0,
-            "y": 48
-          },
-          "id": 48,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 2,
-          "links": [],
-          "nullPointMode": "null",
-          "paceLength": 10,
-          "percentage": false,
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "etcd_debugging_mvcc_db_compaction_keys_total{instance=~\"$instance\",job=~\"$cluster\"}",
-              "format": "time_series",
-              "intervalFactor": 1,
-              "legendFormat": "{{ instance  }} keys compacted ",
-              "refId": "A"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Compacted Keys",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": "prometheus",
           "description": "proposals_committed_total records the total number of consensus proposals committed. This gauge should increase over time if the cluster is healthy. Several healthy members of an etcd cluster may have different total committed proposals at once. This discrepancy may be due to recovering from peers after starting, lagging behind the leader, or being the leader and therefore having the most commits. It is important to monitor this metric across all the members in the cluster; a consistently large lag between a single member and its leader indicates that member is slow or unhealthy.\n\nproposals_applied_total records the total number of consensus proposals applied. The etcd server applies every committed proposal asynchronously. The difference between proposals_committed_total and proposals_applied_total should usually be small (within a few thousands even under high load). If the difference between them continues to rise, it indicates that the etcd server is overloaded. This might happen when applying expensive queries like heavy range queries or large txn operations.",
           "fill": 1,
           "gridPos": {
             "h": 6,
             "w": 9,
             "x": 15,
-            "y": 50
+            "y": 54
           },
           "id": 2,
           "legend": {
@@ -3285,7 +3460,7 @@ data:
             "h": 7,
             "w": 12,
             "x": 0,
-            "y": 55
+            "y": 56
           },
           "id": 7,
           "legend": {
@@ -3382,7 +3557,7 @@ data:
             "h": 6,
             "w": 6,
             "x": 12,
-            "y": 56
+            "y": 60
           },
           "id": 23,
           "legend": {
@@ -3482,7 +3657,7 @@ data:
             "h": 6,
             "w": 6,
             "x": 18,
-            "y": 56
+            "y": 60
           },
           "id": 41,
           "legend": {
@@ -3580,7 +3755,7 @@ data:
             "h": 7,
             "w": 12,
             "x": 0,
-            "y": 62
+            "y": 63
           },
           "id": 54,
           "legend": {
@@ -3666,7 +3841,7 @@ data:
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 69
+            "y": 70
           },
           "id": 9,
           "legend": {
@@ -3756,7 +3931,7 @@ data:
             "h": 7,
             "w": 12,
             "x": 0,
-            "y": 77
+            "y": 78
           },
           "id": 3,
           "legend": {
@@ -3855,7 +4030,7 @@ data:
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 84
+            "y": 85
           },
           "id": 8,
           "legend": {
@@ -3940,7 +4115,6 @@ data:
           }
         }
       ],
-      "refresh": "5s",
       "schemaVersion": 17,
       "style": "dark",
       "tags": [],
@@ -3949,9 +4123,10 @@ data:
           {
             "allValue": null,
             "current": {
-              "selected": true,
               "text": "adhoc-etcd",
-              "value": "adhoc-etcd"
+              "value": [
+                "adhoc-etcd"
+              ]
             },
             "datasource": "prometheus",
             "definition": "label_values(job)",
@@ -3975,7 +4150,6 @@ data:
           {
             "allValue": null,
             "current": {
-              "selected": true,
               "text": "All",
               "value": "$__all"
             },
@@ -4030,7 +4204,7 @@ data:
         ]
       },
       "timezone": "browser",
-      "title": "etcd-clusters-nocontainer",
-      "uid": "hzhXdzznZz",
+      "title": "etcd-clusters-as-service",
+      "uid": "hzhXdzznZn",
       "version": 1
     }
