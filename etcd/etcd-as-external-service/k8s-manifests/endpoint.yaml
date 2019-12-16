@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Endpoints
+metadata:
+  labels:
+    app: etcd
+    cluster: adhoc
+  name: adhoc-etcd
+  namespace: etcd
+subsets:
+- addresses:
+  - ip: 10.0.11.21
+    ip: 10.0.11.22
+    ip: 10.0.11.23
+  ports:
+  - name: metrics
+    port: 2379
+    protocol: TCP
