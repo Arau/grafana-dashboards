@@ -2598,7 +2598,7 @@ data:
               "tableColumn": "",
               "targets": [
                 {
-                  "expr": "max(etcd_server_leader_changes_seen_total{pod=~\"$pod\",job=~\"$cluster\"})",
+                  "expr": "max(etcd_server_proposals_failed_total{pod=~\"$pod\",job=~\"$cluster\"})",
                   "format": "time_series",
                   "intervalFactor": 2,
                   "refId": "A",
